@@ -6,7 +6,7 @@ from sklearn.cluster import DBSCAN
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 
-df = pd.read_csv('ml_ready_players.csv')
+df = pd.read_csv('ml_ready_players_2025.csv')
 
 # Convert all bool columns to int automatically
 bool_cols = df.select_dtypes(include=['bool']).columns
@@ -25,6 +25,7 @@ for pos in positions:
     df_pos = df[df['position_name'] == pos].copy()
 
     df_features = df_pos.drop(columns=['position_name'])
+    df_features = df_features.dropna(axis=1)
 
     # Scale the data
     scaler = StandardScaler()
@@ -49,3 +50,7 @@ print(df[['position_name', 'cluster']].head())
 unique_clusters = df['cluster'].nunique()
 print(f"Number of unique clusters: {unique_clusters}")
 
+df2 = pd.read_csv('full_data_2025.csv')
+df2['cluster'] = df['cluster']
+df2.to_csv('clustered_data_2025.csv', index=False)
+print("data saved to clustered_data_2025.csv ")

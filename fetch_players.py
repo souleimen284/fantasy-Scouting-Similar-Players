@@ -22,6 +22,6 @@ df_players = df_players.merge(positions, left_on='element_type', right_on='posit
 df_players.drop(columns=['position_id','special','squad_number','region','has_temporary_code','opta_code', 'corners_and_indirect_freekicks_text' , 'direct_freekicks_text', 'penalties_text'], inplace=True)
 
 # Save to CSV
-df_players.to_csv("full_data.csv", index=False)
+df_players.to_csv("full_data_2025.csv", index=False)
 
-print("✅ All Premier League players saved to full_data.csv")
+print("✅ All Premier League players saved to full_data_2025.csv")

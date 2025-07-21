@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 # Load the data
-df = pd.read_csv("full_data.csv")
+df = pd.read_csv("full_data_2025.csv")
 
 
 
@@ -53,6 +53,6 @@ print(f"Total number of columns: {df_dummies.shape[1]}")
 
 
 # Save to new CSV
-df_dummies.to_csv("ml_ready_players.csv", index=False)
+df_dummies.to_csv("ml_ready_players_2025.csv", index=False)
 print("✅ Cleaned data saved as 'ml_ready_players.csv'")
 
